@@ -1,11 +1,24 @@
-/**
- * This file is just a silly example to show everything working in the browser.
- * When you're ready to start on your site, clear the file. Happy hacking!
- **/
+import { Bulbasaur } from './bulbasaur.js'
+import { Challenge } from './challenge.js'
+import { Charmander } from './charmander.js'
+import { Pokemon } from './pokemon.js'
 
-import confetti from 'canvas-confetti';
+const bulb = new Bulbasaur('bulb')
+const lizz = new Charmander('lizz')
+const chal = new Challenge(bulb, lizz)
+lizz.hp = 300
 
-confetti.create(document.getElementById('canvas') as HTMLCanvasElement, {
-  resize: true,
-  useWorker: true,
-})({ particleCount: 200, spread: 200 });
+
+chal.print()
+
+chal.oneAttack()
+chal.print()
+
+chal.twoAttack()
+chal.print()
+
+bulb.heal(20)
+chal.print()
+
+chal.twoAttack()
+chal.print()
